@@ -8,29 +8,64 @@ import {
   Download,
 } from "lucide-react";
 import { AnimatedBorderButton } from "../components/AnimatedBorderButton";
+import emailjs from "@emailjs/browser";
 
 const skills = [
-  "React",
-  "Next.js",
+  "Java",
+  "JavaScript",
   "TypeScript",
+  "React.js",
   "Node.js",
-  "GraphQL",
-  "PostgreSQL",
+  "Express.js",
+  "Spring Boot",
+  "MySQL",
   "MongoDB",
-  "Redis",
-  "Docker",
-  "AWS",
-  "Vercel",
-  "Tailwind CSS",
-  "Prisma",
-  "Jest",
-  "Cypress",
-  "Figma",
   "Git",
-  "GitHub Actions",
+  "GitHub",
+  "Docker",
+  "Tailwind CSS",
+  "REST APIs",
+  "Responsive Design",
 ];
 
 export const Hero = () => {
+  const handleResumeDownload = async () => {
+    try {
+      // Send email notification
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      await emailjs.send(
+        serviceId,
+        templateId,
+        {
+          name: "Resume Download",
+          email: "jiyaakukrejaa@gmail.com",
+          message: "Someone just downloaded your resume from the portfolio!",
+        },
+        publicKey
+      );
+
+      // Trigger resume download
+      const link = document.createElement("a");
+      link.href = "/resume.pdf";
+      link.download = "Jiya_Kukreja_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Error:", error);
+      // Still download even if email fails
+      const link = document.createElement("a");
+      link.href = "/resume.pdf";
+      link.download = "Jiya_Kukreja_Resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Bg */}
@@ -69,34 +104,36 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                Software Engineer • React Specialist
+                CS Student • Full-Stack Developer
               </span>
             </div>
 
             {/* Headline */}
             <div className="space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in animation-delay-100">
-                Crafting <span className="text-primary glow-text">digital</span>
+                Building <span className="text-primary glow-text">modern</span>
                 <br />
-                experiences with
+                web solutions
                 <br />
                 <span className="font-serif italic font-normal text-white">
-                  precision.
+                  with purpose.
                 </span>
               </h1>
               <p className="text-lg text-muted-foreground max-w-lg animate-fade-in animation-delay-200">
-                Hi, I'm Pedro Machado — a software engineer specializing in
-                React, Next.js, and TypeScript. I build scalable, performant web
-                applications that users love.
+                Hi, I'm <span className="text-2xl font-bold text-primary glow-text">Jiya Kukreja</span> — a Computer Science student at Chitkara University
+                and a passionate full-stack developer. I build end-to-end web applications
+                using React, Node.js, Spring Boot, and modern technologies.
               </p>
             </div>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
-              <Button size="lg">
-                Contact Me <ArrowRight className="w-5 h-5" />
-              </Button>
-              <AnimatedBorderButton>
+              <a href="#contact">
+                <Button size="lg">
+                  Contact Me <ArrowRight className="w-5 h-5" />
+                </Button>
+              </a>
+              <AnimatedBorderButton onClick={handleResumeDownload}>
                 <Download className="w-5 h-5" />
                 Download CV
               </AnimatedBorderButton>
@@ -106,9 +143,8 @@ export const Hero = () => {
             <div className="flex items-center gap-4 animate-fade-in animation-delay-400">
               <span className="text-sm text-muted-foreground">Follow me: </span>
               {[
-                { icon: Github, href: "#" },
-                { icon: Linkedin, href: "#" },
-                { icon: Twitter, href: "#" },
+                { icon: Github, href: "https://github.com/Jiyakukreja" },
+                { icon: Linkedin, href: "https://www.linkedin.com/in/jiyaa-kukrejaa/" },
               ].map((social, idx) => (
                 <a
                   key={idx}
@@ -121,7 +157,7 @@ export const Hero = () => {
             </div>
           </div>
           {/* Right Column - Profile Image */}
-          <div className="relatice animate-fade-in animation-delay-300">
+          <div className="relative animate-fade-in animation-delay-300">
             {/* Profile Image */}
             <div className="relative max-w-md mx-auto">
               <div
@@ -132,8 +168,8 @@ export const Hero = () => {
               />
               <div className="relative glass rounded-3xl p-2 glow-border">
                 <img
-                  src="/profile-photo.jpg"
-                  alt="Pedro Machado"
+                  src="/profile-photo (2).jpeg"
+                  alt="Jiya Kukreja"
                   className="w-full aspect-[4/5] object-cover rounded-2xl"
                 />
 
@@ -142,15 +178,15 @@ export const Hero = () => {
                   <div className="flex items-center gap-3">
                     <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                     <span className="text-sm font-medium">
-                      Available for work
+                      Open to opportunities
                     </span>
                   </div>
                 </div>
                 {/* Stats Badge */}
                 <div className="absolute -top-4 -left-4 glass rounded-xl px-4 py-3 animate-float animation-delay-500">
-                  <div className="text-2xl font-bold text-primary">5+</div>
-                  <div className="text-xs text-muted-foreground">
-                    Years Exp.
+                  <div className="text-2xl font-bold text-primary">B.E.</div>
+                  <div className="text-xs text-black font-semibold">
+                    CS Student
                   </div>
                 </div>
               </div>

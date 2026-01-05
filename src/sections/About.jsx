@@ -49,30 +49,29 @@ export const About = () => {
 
             <div className="space-y-4 text-muted-foreground animate-fade-in animation-delay-200">
               <p>
-                I'm a passionate software engineer with over 5 years of
-                experience crafting digital products that make a difference. My
-                journey started with a curiosity for how things work on the web,
-                and it has evolved into a deep expertise in modern frontend
-                technologies.
+                I'm a Computer Science Engineering student at Chitkara University,
+                passionate about building full-stack web applications. My journey
+                started with curiosity about how technology shapes our world, and
+                it has evolved into hands-on experience with modern development tools.
               </p>
               <p>
-                I specialize in React, Next.js, and TypeScript, building
-                everything from sleek landing pages to complex enterprise
-                applications. My approach combines technical excellence with a
-                keen eye for design and user experience.
+                I specialize in React.js, Node.js, and Spring Boot, creating
+                end-to-end solutions from responsive frontends to scalable backends.
+                I work with Java, JavaScript/TypeScript, and databases like MySQL
+                and MongoDB to build real-world applications.
               </p>
               <p>
-                When I'm not coding, you'll find me exploring new technologies,
-                contributing to open-source projects, or sharing knowledge with
-                the developer community.
+                As an Open Source Contributor at GirlScript Summer of Code and
+                Campus Ambassador at Internshala, I actively engage with the
+                developer community while continuously learning and growing my skills.
               </p>
             </div>
 
             <div className="glass rounded-2xl p-6 glow-border animate-fade-in animation-delay-300">
               <p className="text-lg font-medium italic text-foreground">
-                "My mission is to create digital experiences that are not just
-                functional, but truly delightful — products that users love to
-                use and developers love to maintain."
+                "My goal is to build modern, scalable web applications that solve
+                real problems — combining clean code, user-centric design, and
+                continuous learning to create impactful digital solutions."
               </p>
             </div>
           </div>

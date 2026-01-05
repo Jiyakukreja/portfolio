@@ -18,12 +18,6 @@ const contactInfo = [
     href: "mailto:jiyaakukrejaa@gmail.com",
   },
   {
-    icon: Phone,
-    label: "Phone",
-    value: "+91 9501707181",
-    href: "tel:+919501707181",
-  },
-  {
     icon: MapPin,
     label: "Location",
     value: "Chandigarh, India",
